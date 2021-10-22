@@ -3,11 +3,12 @@ import Products from "./components/Products";
 import { commerce } from "./library/commerce";
 import Navbar from "./mainComponent/Navbar";
 const App = () => {
-  let [product, setProduct] = useState([]);
+  let [products, setProducts] = useState([]);
 
   let fetchApi = async () => {
     const { data } = await commerce.products.list();
-    setProduct(data);
+    setProducts(data);
+    console.log(data);
   };
   useEffect(() => {
     fetchApi();
@@ -16,7 +17,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Products />
+      <Products products={products} />
     </div>
   );
 };

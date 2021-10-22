@@ -1,5 +1,8 @@
 .product {
   border: 1px solid brown;
 }
+.product_image {
+  width: 200px;
+}
 
 /*# sourceMappingURL=main.css.map */
