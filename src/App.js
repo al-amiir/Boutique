@@ -4,14 +4,14 @@ import { commerce } from "./library/commerce";
 import Navbar from "./mainComponent/Navbar";
 const App = () => {
   let [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
+  let [cart, setCart] = useState({});
 
   let fetchProduct = async () => {
     const { data } = await commerce.products.list();
     setProducts(data);
   };
   let fetchCart = async () => {
-    const { data } = await commerce.cart.retrieve();
+    const data = await commerce.cart.retrieve();
     setCart(data);
   };
   let handleAddToCart = async (productId, quantity) => {
@@ -19,6 +19,7 @@ const App = () => {
     setCart(item.cart);
     console.log(cart);
   };
+
   useEffect(() => {
     fetchProduct();
     fetchCart();
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar cartTotalItem={cart.total_items} />
       <Products products={products} handleAddToCart={handleAddToCart} />
     </div>
   );
