@@ -3,10 +3,23 @@ import Products from "./components/Products";
 import { commerce } from "./library/commerce";
 import Navbar from "./mainComponent/Navbar";
 import Cart from "./mainComponent/Cart";
+import ReactDOM from "react-dom";
+
+import {
+  BrowserRouter as Switch,
+  Route,
+  Router,
+  Link,
+  useLocation,
+  useHistory,
+  useRouteMatch,
+} from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { withRouter } from "react-router";
+
 const App = () => {
   let [products, setProducts] = useState([]);
   let [cart, setCart] = useState({});
-
   let fetchProduct = async () => {
     const { data } = await commerce.products.list();
     setProducts(data);
@@ -18,21 +31,42 @@ const App = () => {
   let handleAddToCart = async (productId, quantity) => {
     const item = await commerce.cart.add(productId, quantity);
     setCart(item.cart);
+  };
+  let handleAddUpdateCart = async (productId, quantity) => {
+    const item = await commerce.cart.update(productId, quantity);
+    setCart(item.cart);
     console.log(cart);
   };
-
+  let handleAddRemoveFromCart = async (productId) => {
+    const item = await commerce.cart.remove(productId);
+    setCart(item.cart);
+  };
+  let handleAddEmptyCart = async (productId) => {
+    const item = await commerce.cart.empty(productId);
+    setCart(item.cart);
+  };
   useEffect(() => {
     fetchProduct();
     fetchCart();
   }, []);
-
   return (
     <div>
-      <Navbar cartTotalItem={cart.total_items} />
-      <Products products={products} handleAddToCart={handleAddToCart} />
-      <Cart cart={cart} />
+      <Switch>
+        <Navbar cartTotalItem={cart.total_items} />
+        <Route exact path="/">
+          <Products products={products} handleAddToCart={handleAddToCart} />
+        </Route>
+        <Route path="/cart">
+          <Cart
+            cart={cart}
+            handleAddUpdateCart={handleAddUpdateCart}
+            handleAddRemoveFromCart={handleAddRemoveFromCart}
+            handleAddEmptyCart={handleAddEmptyCart}
+          />
+        </Route>
+      </Switch>
     </div>
   );
 };
 
-export default App;
+export default withRouter(App);

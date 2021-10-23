@@ -1,19 +1,31 @@
 import React from "react";
 
-const SingleCart = ({ data }) => {
+const SingleCart = ({ data, handleAddUpdateCart, handleAddRemoveFromCart }) => {
   return (
     <div className="singleCart">
       <div>{data.image.url}</div>
       <p>{data.name}</p>
       <p>price:{data.price.formatted_with_symbol}</p>
       <div>
-        <button>-</button>
+        <button
+          onClick={() =>
+            handleAddUpdateCart(data.id, { quantity: data.quantity - 1 })
+          }
+        >
+          -
+        </button>
         <span>{data.quantity}</span>
-        <button>+</button>
+        <button
+          onClick={() =>
+            handleAddUpdateCart(data.id, { quantity: data.quantity + 1 })
+          }
+        >
+          +
+        </button>
       </div>
       <div>
         <span>total price: {data.line_total.formatted_with_symbol}</span>
-        <button>Remove</button>
+        <button onClick={() => handleAddRemoveFromCart(data.id)}>Remove</button>
       </div>
     </div>
   );

@@ -1,13 +1,23 @@
 import React from "react";
 import SingleCart from "../components/SingleCart";
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  handleAddUpdateCart,
+  handleAddRemoveFromCart,
+  handleAddEmptyCart,
+}) => {
   function FullCart() {
     return (
       <div className="fullCart">
         Full Cart
         <div>
           {cart.line_items.map((c) => (
-            <SingleCart key={c.id} data={c} />
+            <SingleCart
+              key={c.id}
+              data={c}
+              handleAddUpdateCart={handleAddUpdateCart}
+              handleAddRemoveFromCart={handleAddRemoveFromCart}
+            />
           ))}
         </div>
         <div className="cart_details">
@@ -18,7 +28,7 @@ const Cart = ({ cart }) => {
             total price : {cart.subtotal.formatted_with_symbol}
           </span>
         </div>
-        <button>Empty</button>
+        <button onClick={() => handleAddEmptyCart()}>Empty</button>
       </div>
     );
   }
