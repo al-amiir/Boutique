@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./product/Product";
+import Product from "../components/Product";
 
 const Products = ({ products, handleAddToCart }) => {
   return (

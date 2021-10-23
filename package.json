@@ -16,7 +16,7 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "sass:watch": "sass ./src/style/main.scss ./public/css/main.css",
+    "sass:watch": "sass ./src/style/main.scss ./public/css/main.css --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -9,4 +9,21 @@
   border: 1px solid;
 }
 
+.checkout {
+  width: 400px;
+  border: 1px solid brown;
+}
+.checkout_circles {
+  display: flex;
+  justify-content: space-around;
+}
+.checkout_circles div {
+  display: flex;
+}
+.checkout_circles-icons {
+  background-color: cornflowerblue;
+  width: 10px;
+  height: 10px;
+}
+
 /*# sourceMappingURL=main.css.map */

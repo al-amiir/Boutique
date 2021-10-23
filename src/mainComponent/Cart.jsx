@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SingleCart from "../components/SingleCart";
 const Cart = ({
   cart,
@@ -29,6 +30,9 @@ const Cart = ({
           </span>
         </div>
         <button onClick={() => handleAddEmptyCart()}>Empty</button>
+        <Link to="/checkout">
+          <button>Checkout</button>
+        </Link>
       </div>
     );
   }
