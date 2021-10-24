@@ -3,18 +3,7 @@ import Products from "./mainComponent/Products";
 import { commerce } from "./library/commerce";
 import Navbar from "./mainComponent/Navbar";
 import Cart from "./mainComponent/Cart";
-import ReactDOM from "react-dom";
-
-import {
-  BrowserRouter as Switch,
-  Route,
-  Router,
-  Link,
-  useLocation,
-  useHistory,
-  useRouteMatch,
-} from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import Checkout from "./mainComponent/Checkout";
 
@@ -36,7 +25,6 @@ const App = () => {
   let handleAddUpdateCart = async (productId, quantity) => {
     const item = await commerce.cart.update(productId, quantity);
     setCart(item.cart);
-    console.log(cart);
   };
   let handleAddRemoveFromCart = async (productId) => {
     const item = await commerce.cart.remove(productId);
@@ -66,7 +54,7 @@ const App = () => {
           />
         </Route>
         <Route path="/Checkout">
-          <Checkout />
+          <Checkout cart={cart} />
         </Route>
       </Switch>
     </div>

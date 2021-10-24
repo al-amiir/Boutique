@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
+import { commerce } from "../library/commerce";
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
+  const [token, setToken] = useState([]);
+  // Recived Cart from Cart component 
+  // Generate Token by cart id 
+  // send token to Address form 
+  
+  useEffect(async () => {
+    try {
+      // Generate Token
+      let tokens = await commerce.checkout.generateToken(cart.id, {
+        type: "cart",
+      });
+      await setToken(tokens);
+    } catch (error) {}
+  }, [cart]);
+
   return (
     <div className="checkout">
       <div className="checkout_circles">
@@ -15,11 +31,10 @@ const Checkout = () => {
           </div>
         ))}
       </div>
-      {/* <div>{checker === 0 ? <AddressForm /> : <PaymentForm />}</div> */}
       {checker === steps.length ? (
         "Nice"
       ) : checker === 0 ? (
-        <AddressForm />
+        <AddressForm token={token} />
       ) : (
         <PaymentForm />
       )}
