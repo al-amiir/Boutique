@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  BrowserRouter as useLocation,
-  Link,
-  Switch,
-  useRouteMatch,
-} from "react-router-dom";
+import { BrowserRouter as Link, Switch } from "react-router-dom";
 
 const Navbar = ({ cartTotalItem }) => {
-  let { path, url } = useRouteMatch();
-
   return (
     <div className="navbar">
       <span>logo</span>

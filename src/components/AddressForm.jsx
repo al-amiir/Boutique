@@ -128,7 +128,6 @@ const AddressForm = ({ token }) => {
               <Select
                 fullWidth
                 value={shippingOption}
-                onClick={(e) => console.log(e.target.data_value)}
                 onChange={(e) => setShippingOption(e.target.value)}
               >
                 {shippingOptions.map((op) => (
@@ -139,17 +138,6 @@ const AddressForm = ({ token }) => {
                 ))}
               </Select>
             </Grid>
-            {/* 
-                [{…}]
-                0:
-                countries: ["AF"]
-                description: "international"
-                id: "ship_L1vOoZjM4oRa8Z"
-                 price:
-                formatted: "10.00"
-                formatted_with_code: "10.00 USD"
-                formatted_with_symbol: "$10.00"
-                raw: 10 */}
           </div>
           <br />
         </form>

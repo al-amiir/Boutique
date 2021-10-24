@@ -7,10 +7,10 @@ const Checkout = ({ cart }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
-  // Recived Cart from Cart component 
-  // Generate Token by cart id 
-  // send token to Address form 
-  
+  // Recived Cart from Cart component
+  // Generate Token by cart id
+  // send token to Address form
+
   useEffect(async () => {
     try {
       // Generate Token
@@ -18,14 +18,16 @@ const Checkout = ({ cart }) => {
         type: "cart",
       });
       await setToken(tokens);
-    } catch (error) {}
+    } catch (error) {
+      //   console.log(error);
+    }
   }, [cart]);
 
   return (
     <div className="checkout">
       <div className="checkout_circles">
         {steps.map((label, i) => (
-          <div>
+          <div key={i}>
             {i <= checker && <span className="checkout_circles-icons"></span>}
             <span>{label}</span>
           </div>
