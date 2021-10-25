@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import FormInput from "./customFormInput";
+// import FormInput from "./customFormInput";
 
 import Grid from "@mui/material/Grid";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import TextField from "@mui/material/TextField";
 
 import { commerce } from "../library/commerce";
 
-const AddressForm = ({ token }) => {
+const AddressForm = ({ token, submitData }) => {
+  const { register, handleSubmit } = useForm();
+
   // Recive Token From Checkout Component
   // By this token we fetching countires in your commerce then pass value to shippingCountries
   // and we pass one value to shippingCountriey
@@ -32,7 +35,7 @@ const AddressForm = ({ token }) => {
   const methods = useForm();
 
   // Fetching All Countries
-  async function fetchAllCountries(passMeToken) {
+  async function fetchAllCountries(passMeToken, submitData) {
     let { countries } = await commerce.services.localeListShippingCountries(
       passMeToken
     );
@@ -85,14 +88,50 @@ const AddressForm = ({ token }) => {
     <>
       <p>Shipping address</p>
       <FormProvider {...methods}>
-        <form>
+        <form
+          onSubmit={handleSubmit((data) => {
+            submitData({
+              ...data,
+              shippingCountry,
+              shippingSubdivision,
+              shippingOption,
+            });
+          })}
+        >
+          <Grid>
+            <TextField
+              {...register("firstName", { required: true })}
+              name="firstName"
+              label="First name"
+            />
+            <TextField
+              {...register("lastName", { required: true })}
+              name="lastName"
+              label="Last name"
+            />
+            <TextField
+              {...register("address1", { required: true })}
+              name="address1"
+              label="Address line 1"
+            />
+            <TextField
+              {...register("city", { required: true })}
+              name="city"
+              label="City"
+            />
+
+            <TextField
+              {...register("email", { required: true })}
+              name="email"
+              label="Email"
+            />
+            <TextField
+              {...register("zip", { required: true })}
+              name="zip"
+              label="Zip / Postal code"
+            />
+          </Grid>
           <div>
-            <FormInput required name="firstName" label="First name" />
-            <FormInput required name="lastName" label="Last name" />
-            <FormInput required name="address1" label="Address line 1" />
-            <FormInput required name="email" label="Email" />
-            <FormInput required name="city" label="City" />
-            <FormInput required name="zip" label="Zip / Postal code" />
             <Grid item xs={12} sm={6}>
               <p>Shipping Country</p>
               <Select
@@ -140,6 +179,7 @@ const AddressForm = ({ token }) => {
             </Grid>
           </div>
           <br />
+          <button type="submit">Submit</button>
         </form>
       </FormProvider>
     </>

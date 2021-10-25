@@ -7,9 +7,17 @@ const Checkout = ({ cart }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
+  const [shippingData, setShippingData] = useState([]);
   // Recived Cart from Cart component
   // Generate Token by cart id
   // send token to Address form
+
+  function nextStep() {
+    setChecker(checker + 1);
+  }
+  function backStep() {
+    setChecker(checker - 1);
+  }
 
   useEffect(async () => {
     try {
@@ -21,7 +29,12 @@ const Checkout = ({ cart }) => {
     } catch (error) {
       //   console.log(error);
     }
-  }, [cart]);
+  }, [cart, shippingData]);
+
+  function submitData(data) {
+    setShippingData(data);
+    nextStep();
+  }
 
   return (
     <div className="checkout">
@@ -36,15 +49,15 @@ const Checkout = ({ cart }) => {
       {checker === steps.length ? (
         "Nice"
       ) : checker === 0 ? (
-        <AddressForm token={token} />
+        <AddressForm token={token} submitData={submitData} />
       ) : (
-        <PaymentForm />
+        <PaymentForm shippingData={shippingData} />
       )}
-      <button
-        disabled={checker === 2 ? true : false}
-        onClick={() => setChecker(checker + 1)}
-      >
-        move step
+      <button disabled={checker === 0 ? true : false} onClick={backStep}>
+        back
+      </button>
+      <button disabled={checker === 2 ? true : false} onClick={nextStep}>
+        Next
       </button>
     </div>
   );

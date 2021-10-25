@@ -1,23 +1,23 @@
-import React from "react";
+// import React from "react";
 
-import { useFormContext, Controller } from "react-hook-form";
-import TextField from "@mui/material/TextField";
+// import { useFormContext, Controller } from "react-hook-form";
+// import TextField from "@mui/material/TextField";
 
-function FormInput({ name, label, required }) {
-  const { control } = useFormContext();
-  const isError = false;
+// function FormInput({ name, label }) {
+//   const { control } = useFormContext();
+//   const isError = false;
 
-  return (
-    <div>
-      <Controller
-        name={name}
-        control={control}
-        required={required}
-        error={isError}
-        render={({ field }) => <TextField fullWidth label={label} required />}
-      />
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <Controller
+//         name={name}
+//         control={control}
+//         required
+//         error={isError}
+//         render={({ field }) => <TextField fullWidth label={label} {...field} />}
+//       />
+//     </div>
+//   );
+// }
 
-export default FormInput;
+// export default FormInput;
