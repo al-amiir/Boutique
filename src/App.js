@@ -11,21 +11,34 @@ import Checkout from "./mainComponent/Checkout";
 // First of all i used commerce.js to create my products (search for commerce.js)
 // Then i add a library folder > commerce.js  (go to the file to read comments)
 //---------------------------------------------------------------------------
+// 1)
 // From commerce.js docs we have alot of methods
 // Like >> commerce.products.list() << it used to get products
 // So we fetch all products in the start of react render App.js through useEffect
 // Then store them in products
 // Then send Them to Products Component
 // commerce.js also provide Cart fo us
-// So we send to product component >> handleAddToCart << method to add a product to cart
+// So we send to product component >> handleAddToCart << method to add a product to cart on click
 //------------------------------------------------------------------------------
-//
+// 2)
+// Now lets Focus on Cart Component
+// First we Fetch Cart details from commerce.js >> commerce.cart.retrieve << through fetchCart method in useEffect
+// Store it in cart variable, send it to Cart component
+// Then we send some methods to Cart like :
+// >> commerce.cart.update << through handleAddUpdateCart method to increase or decrease quantity of product
+// >> commerce.cart.remove << through handleAddRemoveFromCart method to remove product from Cart
+// >> commerce.cart.empty << through handleAddEmptyCart to empty entire Cart
+// Go to Cart component
+//------------------------------------------------------------------------------
+
 const App = () => {
   let [products, setProducts] = useState([]);
   let [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
+  ///////////////////////////////////////////////////////////////////////
+  // 1)
   ///////////////////////////////////////////////////////////////////////
   let fetchProduct = async () => {
     const { data } = await commerce.products.list();
@@ -37,6 +50,9 @@ const App = () => {
   };
   ///////////////////////////////////////////////////////////////////////
 
+  ///////////////////////////////////////////////////////////////////////
+  // 2)
+  ///////////////////////////////////////////////////////////////////////
   let fetchCart = async () => {
     const data = await commerce.cart.retrieve();
     setCart(data);
@@ -53,6 +69,8 @@ const App = () => {
     const item = await commerce.cart.empty(productId);
     setCart(item.cart);
   };
+  ///////////////////////////////////////////////////////////////////////
+
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
 
@@ -79,9 +97,11 @@ const App = () => {
     <div>
       <Switch>
         <Navbar cartTotalItem={cart.total_items} />
+        {/* 1) */}
         <Route exact path="/">
           <Products products={products} handleAddToCart={handleAddToCart} />
         </Route>
+        {/* 2 */}
         <Route path="/cart">
           <Cart
             cart={cart}
