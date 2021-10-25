@@ -3,7 +3,7 @@ import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import { commerce } from "../library/commerce";
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, handleCaptureCheckout }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
@@ -51,7 +51,13 @@ const Checkout = ({ cart }) => {
       ) : checker === 0 ? (
         <AddressForm token={token} submitData={submitData} />
       ) : (
-        <PaymentForm shippingData={shippingData} />
+        <PaymentForm
+          shippingData={shippingData}
+          token={token}
+          nextStep={nextStep}
+          backStep={backStep}
+          handleCaptureCheckout={handleCaptureCheckout}
+        />
       )}
       <button disabled={checker === 0 ? true : false} onClick={backStep}>
         back
