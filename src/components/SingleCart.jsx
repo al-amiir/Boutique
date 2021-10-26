@@ -3,7 +3,7 @@ import React from "react";
 const SingleCart = ({ data, handleAddUpdateCart, handleAddRemoveFromCart }) => {
   return (
     <div className="singleCart">
-      <div>{data.image.url}</div>
+      <img src={data.image.url} alt="" />
       <p>{data.name}</p>
       <p>price:{data.price.formatted_with_symbol}</p>
       <div>
