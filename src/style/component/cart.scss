@@ -1,9 +1,11 @@
 .cartContainer {
   .fullCart {
+    &_products {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .emptyCart {
-  }
-  .singleCart {
-    border: 1px solid;
   }
 }

@@ -3,17 +3,30 @@ import React from "react";
 const SingleCart = ({ data, handleAddUpdateCart, handleAddRemoveFromCart }) => {
   return (
     <div className="singleCart">
-      <img src={data.image.url} alt="" />
-      <p>{data.name}</p>
-      <p>price:{data.price.formatted_with_symbol}</p>
-      <div>
-        <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity - 1 })}>-</button>
-        <span>{data.quantity}</span>
-        <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity + 1 })}>+</button>
-      </div>
-      <div>
-        <span>total price: {data.line_total.formatted_with_symbol}</span>
-        <button onClick={() => handleAddRemoveFromCart(data.id)}>Remove</button>
+      <img className="singleCart_image" src={data.image.url} alt="" />
+      <div className="singleCart_text">
+        <p>
+          <span>name:</span> {data.name}
+        </p>
+        <p>
+          <span>price:</span>
+          {data.price.formatted_with_symbol}
+        </p>
+        <div className="singleCart_quantity">
+          <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity - 1 })} className="singleCart_button singleCart_button-minus">
+            -
+          </button>
+          <span>{data.quantity}</span>
+          <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity + 1 })} className="singleCart_button singleCart_button-plus">
+            +
+          </button>
+        </div>
+        <p>
+          <span>total price:</span> {data.line_total.formatted_with_symbol}
+        </p>
+        <button onClick={() => handleAddRemoveFromCart(data.id)} className="singleCart_button-remove">
+          Remove
+        </button>
       </div>
     </div>
   );

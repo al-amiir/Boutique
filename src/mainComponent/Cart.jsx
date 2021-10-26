@@ -32,8 +32,7 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
   function FullCart() {
     return (
       <div className="fullCart">
-        Full Cart
-        <div>
+        <div className="fullCart_products">
           {cart.line_items.map((c) => (
             <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
           ))}
