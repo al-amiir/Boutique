@@ -21,7 +21,7 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
 // 5)
 // Create handleSubmit method to deal with recieved elements and stripe
 
-const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureCheckout }) => {
+const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureCheckout, setErrorMessage, time }) => {
   ////////////////////////////////////////////////////////////////////////////////
   // 5)
   const handleSubmit = async (event, elements, stripe) => {
@@ -42,6 +42,7 @@ const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureChe
     // if there is any errors
     if (error) {
       console.log("[error]", error);
+      // setErrorMessage(error);
     } else {
       // 5.5)
       // Create the last and final object about your order
@@ -74,6 +75,7 @@ const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureChe
       // and necessary data for the order to be completed.
       // The resolved promise returns an order object which can be used for receipt.
       handleCaptureCheckout(token.id, orderData);
+      time();
       nextStep();
     }
   };

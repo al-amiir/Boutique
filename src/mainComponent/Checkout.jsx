@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import { commerce } from "../library/commerce";
-
+import Confirmation from "../components/Confirmation";
 // Lets Read What is Checkout in commerce.js :
 //
 // The checkout resource is used to navigate your customers
@@ -17,18 +17,31 @@ import { commerce } from "../library/commerce";
 // Go to Address Component
 //---------------------------------------------------------------------------------------
 // 2)
-// Back from Address Component
+// Back from Address Component ?
 // Now we have shippingData
 // Send it to PaymentForm With handleCaptureCheckout
 // Go to Payment Component
 //---------------------------------------------------------------------------------------
+// 3)
+// Back from Payment Component ?
+// Now you in the last step , The Confirmation
+// Go to Confirmation Component
+//---------------------------------------------------------------------------------------
 
-const Checkout = ({ cart, handleCaptureCheckout }) => {
+const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMessage }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
   const [shippingData, setShippingData] = useState([]);
 
+  const [finished, setFinished] = useState(false);
+
+  function time() {
+    setTimeout(() => {
+      setFinished(true);
+      return <p>Thanks</p>;
+    }, 3000);
+  }
   /////////////////////////////////////////////////////////////////////////
   // 1)
   useEffect(async () => {
@@ -65,7 +78,7 @@ const Checkout = ({ cart, handleCaptureCheckout }) => {
           </div>
         ))}
       </div>
-      {checker === steps.length ? "Nice" : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} handleCaptureCheckout={handleCaptureCheckout} />}
+      {checker === steps.length ? <Confirmation finished={finished} order={order} errorMessage={errorMessage} /> : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} setErrorMessage={setErrorMessage} handleCaptureCheckout={handleCaptureCheckout} time={time} />}
       <button disabled={checker === 0 ? true : false} onClick={backStep}>
         back
       </button>

@@ -116,7 +116,7 @@ const App = () => {
 
         {/* 3 */}
         <Route path="/Checkout">
-          <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} />
+          <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} order={order} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
         </Route>
         {/*  */}
       </Switch>
