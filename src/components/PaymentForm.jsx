@@ -1,8 +1,4 @@
-import {
-  Elements,
-  CardElement,
-  ElementsConsumer,
-} from "@stripe/react-stripe-js";
+import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
 import React from "react";
@@ -25,13 +21,7 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
 // 5)
 // Create handleSubmit method to deal with recieved elements and stripe
 
-const PaymentForm = ({
-  shippingData,
-  token,
-  nextStep,
-  backStep,
-  handleCaptureCheckout,
-}) => {
+const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureCheckout }) => {
   ////////////////////////////////////////////////////////////////////////////////
   // 5)
   const handleSubmit = async (event, elements, stripe) => {

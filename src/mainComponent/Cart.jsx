@@ -27,12 +27,7 @@ import SingleCart from "../components/SingleCart";
 
 // 2)
 // If line_items had no objects display EmptyCart
-const Cart = ({
-  cart,
-  handleAddUpdateCart,
-  handleAddRemoveFromCart,
-  handleAddEmptyCart,
-}) => {
+const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmptyCart }) => {
   // 1)
   function FullCart() {
     return (
@@ -40,21 +35,12 @@ const Cart = ({
         Full Cart
         <div>
           {cart.line_items.map((c) => (
-            <SingleCart
-              key={c.id}
-              data={c}
-              handleAddUpdateCart={handleAddUpdateCart}
-              handleAddRemoveFromCart={handleAddRemoveFromCart}
-            />
+            <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
           ))}
         </div>
         <div className="cart_details">
-          <span className="cart_details-totalItems">
-            total items: {cart.total_items}
-          </span>
-          <span className="cart_details-totalPrice">
-            total price : {cart.subtotal.formatted_with_symbol}
-          </span>
+          <span className="cart_details-totalItems">total items: {cart.total_items}</span>
+          <span className="cart_details-totalPrice">total price : {cart.subtotal.formatted_with_symbol}</span>
         </div>
         <button onClick={() => handleAddEmptyCart()}>Empty</button>
         <Link to="/checkout">
@@ -64,11 +50,7 @@ const Cart = ({
     );
   }
   function EmptyCart() {
-    return (
-      <div className="emptyCart">
-        Your Cart is empty, Add some products dude!
-      </div>
-    );
+    return <div className="emptyCart">Your Cart is empty, Add some products dude!</div>;
   }
   if (!cart.line_items) return <>Loading...</>;
   return (

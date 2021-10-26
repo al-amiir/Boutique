@@ -7,21 +7,9 @@ const SingleCart = ({ data, handleAddUpdateCart, handleAddRemoveFromCart }) => {
       <p>{data.name}</p>
       <p>price:{data.price.formatted_with_symbol}</p>
       <div>
-        <button
-          onClick={() =>
-            handleAddUpdateCart(data.id, { quantity: data.quantity - 1 })
-          }
-        >
-          -
-        </button>
+        <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity - 1 })}>-</button>
         <span>{data.quantity}</span>
-        <button
-          onClick={() =>
-            handleAddUpdateCart(data.id, { quantity: data.quantity + 1 })
-          }
-        >
-          +
-        </button>
+        <button onClick={() => handleAddUpdateCart(data.id, { quantity: data.quantity + 1 })}>+</button>
       </div>
       <div>
         <span>total price: {data.line_total.formatted_with_symbol}</span>

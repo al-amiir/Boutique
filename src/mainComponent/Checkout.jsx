@@ -65,19 +65,7 @@ const Checkout = ({ cart, handleCaptureCheckout }) => {
           </div>
         ))}
       </div>
-      {checker === steps.length ? (
-        "Nice"
-      ) : checker === 0 ? (
-        <AddressForm token={token} submitData={submitData} />
-      ) : (
-        <PaymentForm
-          shippingData={shippingData}
-          token={token}
-          nextStep={nextStep}
-          backStep={backStep}
-          handleCaptureCheckout={handleCaptureCheckout}
-        />
-      )}
+      {checker === steps.length ? "Nice" : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} handleCaptureCheckout={handleCaptureCheckout} />}
       <button disabled={checker === 0 ? true : false} onClick={backStep}>
         back
       </button>

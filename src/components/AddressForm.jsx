@@ -57,9 +57,7 @@ const AddressForm = ({ token, submitData }) => {
   // 1)
   // Fetching All Countries
   async function fetchAllCountries(passMeToken) {
-    let { countries } = await commerce.services.localeListShippingCountries(
-      passMeToken
-    );
+    let { countries } = await commerce.services.localeListShippingCountries(passMeToken);
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
   }
@@ -73,11 +71,7 @@ const AddressForm = ({ token, submitData }) => {
   // 2)
   // Fetching Subdevisions
   async function fetchAllSubdevisions(passMeToken, country) {
-    let { subdivisions } =
-      await commerce.services.localeListShippingSubdivisions(
-        passMeToken,
-        country
-      );
+    let { subdivisions } = await commerce.services.localeListShippingSubdivisions(passMeToken, country);
     setShippingSubdivisions(subdivisions);
     setShippingSubdivision(Object.keys(subdivisions)[0]);
   }
@@ -90,11 +84,7 @@ const AddressForm = ({ token, submitData }) => {
   /////////////////////////////////////////////////////////////////////////////////////////
   // 3)
   // Fetching Options
-  async function fetchAllOptions(
-    passMeToken,
-    shippingCountry,
-    shippingSubdivision
-  ) {
+  async function fetchAllOptions(passMeToken, shippingCountry, shippingSubdivision) {
     let options = await commerce.checkout.getShippingOptions(passMeToken, {
       country: shippingCountry,
       region: shippingSubdivision,
@@ -127,37 +117,13 @@ const AddressForm = ({ token, submitData }) => {
         >
           {/* inputs filled by client  */}
           <Grid>
-            <TextField
-              {...register("firstName", { required: true })}
-              name="firstName"
-              label="First name"
-            />
-            <TextField
-              {...register("lastName", { required: true })}
-              name="lastName"
-              label="Last name"
-            />
-            <TextField
-              {...register("address1", { required: true })}
-              name="address1"
-              label="Address line 1"
-            />
-            <TextField
-              {...register("city", { required: true })}
-              name="city"
-              label="City"
-            />
+            <TextField {...register("firstName", { required: true })} name="firstName" label="First name" />
+            <TextField {...register("lastName", { required: true })} name="lastName" label="Last name" />
+            <TextField {...register("address1", { required: true })} name="address1" label="Address line 1" />
+            <TextField {...register("city", { required: true })} name="city" label="City" />
 
-            <TextField
-              {...register("email", { required: true })}
-              name="email"
-              label="Email"
-            />
-            <TextField
-              {...register("zip", { required: true })}
-              name="zip"
-              label="Zip / Postal code"
-            />
+            <TextField {...register("email", { required: true })} name="email" label="Email" />
+            <TextField {...register("zip", { required: true })} name="zip" label="Zip / Postal code" />
           </Grid>
           {/*  */}
 
@@ -165,10 +131,7 @@ const AddressForm = ({ token, submitData }) => {
             {/* 1 */}
             <Grid>
               <p>Shipping Country</p>
-              <Select
-                value={shippingCountry}
-                onChange={(e) => setShippingCountry(e.target.value)}
-              >
+              <Select value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
                 {Object.entries(shippingCountries).map(([id, country]) => (
                   <MenuItem key={id} value={id}>
                     {country}
@@ -181,10 +144,7 @@ const AddressForm = ({ token, submitData }) => {
             {/* 2 */}
             <Grid>
               <p>Shipping Subdevisions</p>
-              <Select
-                value={shippingSubdivision}
-                onChange={(e) => setShippingSubdivision(e.target.value)}
-              >
+              <Select value={shippingSubdivision} onChange={(e) => setShippingSubdivision(e.target.value)}>
                 {Object.entries(shippingSubdivisions).map(([key, country]) => (
                   <MenuItem key={key} value={key}>
                     {country}
@@ -197,10 +157,7 @@ const AddressForm = ({ token, submitData }) => {
             {/* 3 */}
             <Grid>
               <p>Shipping Options</p>
-              <Select
-                value={shippingOption}
-                onChange={(e) => setShippingOption(e.target.value)}
-              >
+              <Select value={shippingOption} onChange={(e) => setShippingOption(e.target.value)}>
                 {shippingOptions.map((op) => (
                   <MenuItem key={op.id} value={op.id}>
                     {op.description}
