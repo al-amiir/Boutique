@@ -16,6 +16,12 @@ import { commerce } from "../library/commerce";
 // So we create Address Component to make client set his info in it then we get it in shippingData variable
 // Go to Address Component
 //---------------------------------------------------------------------------------------
+// 2)
+// Back from Address Component
+// Now we have shippingData
+// Send it to PaymentForm With handleCaptureCheckout
+// Go to Payment Component
+//---------------------------------------------------------------------------------------
 
 const Checkout = ({ cart, handleCaptureCheckout }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);

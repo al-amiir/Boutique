@@ -32,7 +32,7 @@ import Checkout from "./mainComponent/Checkout";
 //------------------------------------------------------------------------------
 // 3)
 // Now client want to buy products in cart
-// We go to Checkout Component, send cart to it
+// Go to Checkout Component,
 //------------------------------------------------------------------------------
 
 const App = () => {
@@ -84,10 +84,7 @@ const App = () => {
   };
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
-      const incomingOrder = await commerce.checkout.capture(
-        checkoutTokenId,
-        newOrder
-      );
+      const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
       setOrder(incomingOrder);
       refreshCart();
     } catch (error) {
@@ -113,12 +110,7 @@ const App = () => {
 
         {/* 2 */}
         <Route path="/cart">
-          <Cart
-            cart={cart}
-            handleAddUpdateCart={handleAddUpdateCart}
-            handleAddRemoveFromCart={handleAddRemoveFromCart}
-            handleAddEmptyCart={handleAddEmptyCart}
-          />
+          <Cart cart={cart} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} handleAddEmptyCart={handleAddEmptyCart} />
         </Route>
         {/*  */}
 
