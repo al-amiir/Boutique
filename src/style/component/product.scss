@@ -7,16 +7,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
   margin: 10px;
-  // border-radius: 46% 47% 43% 57% / 29% 28% 0% 0%;
+  border-radius: 69% 69% 0% 0%/36% 36% 24% 24%;
   box-shadow: 0 0 10px black;
-  background-color: #611520;
+  background-color: black;
   &_image {
     height: 250px;
     margin-bottom: 10px;
     border-radius: 47% 47% 0% 0%/36% 36% 24% 24%;
-    box-shadow: 0 0 8px black;
+    // box-shadow: 0 0 8px black;
     border-bottom: 6px double orange;
   }
   &_text {
@@ -34,9 +33,9 @@
     height: 40px;
     background-color: black;
     color: orange;
-    border: none;
     font-size: 1.7rem;
     cursor: pointer;
+    border: 6px double;
   }
   i {
     margin-right: 5px;

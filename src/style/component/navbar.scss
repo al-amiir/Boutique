@@ -1,0 +1,24 @@
+.navbar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.5rem;
+  &_cart {
+    display: flex;
+    align-items: center;
+    p {
+      background-color: #22a00b;
+      color: white;
+      padding: 2px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+      border: 1px solid black;
+      box-shadow: 0 0 3px 0px black;
+    }
+  }
+}

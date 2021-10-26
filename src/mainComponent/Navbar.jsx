@@ -9,8 +9,9 @@ const Navbar = ({ cartTotalItem }) => {
         <span>Home</span>
       </Link>
       <Link to="/cart">
-        <button>
-          cart <span>{cartTotalItem}</span>
+        <button className="navbar_cart">
+          <span class="material-icons">add_shopping_cart</span>
+          <p>{cartTotalItem}</p>
         </button>
       </Link>
     </div>

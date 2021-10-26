@@ -13,4 +13,13 @@ html {
 
 body {
   box-sizing: border-box;
+  background-color: wheat;
+}
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+a {
+  text-decoration: none;
 }

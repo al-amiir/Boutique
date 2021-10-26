@@ -6,7 +6,7 @@ const Product = ({ product, handleAddToCart }) => {
       <img className="product_image" src={product.image.url} alt=" " />
       <div className="product_text">
         <p>{product.name}</p>
-        <p>{product.price.raw}</p>
+        <p>${product.price.raw}</p>
         <p>{product.description}</p>
         {console.log(product)}
       </div>
