@@ -30,6 +30,10 @@ import Checkout from "./mainComponent/Checkout";
 // >> commerce.cart.empty << through handleAddEmptyCart to empty entire Cart
 // Go to Cart component
 //------------------------------------------------------------------------------
+// 3)
+// Now client want to buy products in cart
+// We go to Checkout Component, send cart to it
+//------------------------------------------------------------------------------
 
 const App = () => {
   let [products, setProducts] = useState([]);
@@ -71,9 +75,11 @@ const App = () => {
   };
   ///////////////////////////////////////////////////////////////////////
 
+  ///////////////////////////////////////////////////////////////////////
+  // 3)
+  ///////////////////////////////////////////////////////////////////////
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
-
     setCart(newCart);
   };
   const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
@@ -88,6 +94,7 @@ const App = () => {
       setErrorMessage(error.data.error.message);
     }
   };
+  ///////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
     fetchProduct();
@@ -97,10 +104,13 @@ const App = () => {
     <div>
       <Switch>
         <Navbar cartTotalItem={cart.total_items} />
+
         {/* 1) */}
         <Route exact path="/">
           <Products products={products} handleAddToCart={handleAddToCart} />
         </Route>
+        {/*  */}
+
         {/* 2 */}
         <Route path="/cart">
           <Cart
@@ -110,9 +120,13 @@ const App = () => {
             handleAddEmptyCart={handleAddEmptyCart}
           />
         </Route>
+        {/*  */}
+
+        {/* 3 */}
         <Route path="/Checkout">
           <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} />
         </Route>
+        {/*  */}
       </Switch>
     </div>
   );

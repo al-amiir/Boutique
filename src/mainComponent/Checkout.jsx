@@ -3,37 +3,50 @@ import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import { commerce } from "../library/commerce";
 
+// Lets Read What is Checkout in commerce.js :
+//
+// The checkout resource is used to navigate your customers
+// through the transaction and shipping stage of a purchasing flow.
+// A checkout captures data sent from the cart along with the item information,
+// line item IDs, any shipping or billing information as well as tax and shipping rates.
+//---------------------------------------------------------------------------------------
+// 1)
+// Lets Generate Token by cart.id
+// We need shipping data
+// So we create Address Component to make client set his info in it then we get it in shippingData variable
+// Go to Address Component
+//---------------------------------------------------------------------------------------
+
 const Checkout = ({ cart, handleCaptureCheckout }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
   const [shippingData, setShippingData] = useState([]);
-  // Recived Cart from Cart component
-  // Generate Token by cart id
-  // send token to Address form
 
-  function nextStep() {
-    setChecker(checker + 1);
-  }
-  function backStep() {
-    setChecker(checker - 1);
-  }
-
+  /////////////////////////////////////////////////////////////////////////
+  // 1)
   useEffect(async () => {
     try {
-      // Generate Token
       let tokens = await commerce.checkout.generateToken(cart.id, {
         type: "cart",
       });
-      await setToken(tokens);
+      setToken(tokens);
     } catch (error) {
-      //   console.log(error);
+      console.log(error);
     }
   }, [cart, shippingData]);
 
   function submitData(data) {
     setShippingData(data);
     nextStep();
+  }
+  /////////////////////////////////////////////////////////////////////////
+
+  function nextStep() {
+    setChecker(checker + 1);
+  }
+  function backStep() {
+    setChecker(checker - 1);
   }
 
   return (

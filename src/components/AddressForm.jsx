@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useForm, FormProvider } from "react-hook-form";
-// import FormInput from "./customFormInput";
 
 import Grid from "@mui/material/Grid";
 import Select from "@mui/material/Select";
@@ -9,22 +8,44 @@ import TextField from "@mui/material/TextField";
 
 import { commerce } from "../library/commerce";
 
+// So here we use react hook form to easily get data from our form
+// What is logic here ?
+// - we have form with some inputs, client should fill those inputs
+// - then in commerce.js we decide some countries to available shipping to, each country has subdevisions so options in shipping will different
+
+// - countries > US   Subdevisions  > california   shiping options
+//                                  > NYC
+
+//             > Egypt Subdevisions > Alexandria   shiping options
+//                                  > Cairo
+// When client choose us subdevision change then options change
+// When client choose Egypt subdevision change then options change
+
+//------------------------------------------------------------------------------------------
+// 1)
+// We recive token from checkout component
+// By this token we fetching countires in your commerce.js then pass value to shippingCountries
+// and we pass one value to shippingCountriey
+
+// 2)
+// then we focus on subdevision countries in shippingCountriey
+// So Fetching subdevisions
+// set all subdevisions fetched in  shippingSubdivisions
+// and we pass the first value to shippingSubdivision
+
+// 3)
+// Fetching shipping options
+
+// 4)
+// in react-hook-form we use onSubmit method to recieve all data from form, search in docs
+// We use register to send data to data argument in onSubmit
+// So now send data through submitData to Checkout Component
+//------------------------------------------------------------------------------------------
+
 const AddressForm = ({ token, submitData }) => {
   const { register, handleSubmit } = useForm();
+  const methods = useForm();
 
-  // Recive Token From Checkout Component
-  // By this token we fetching countires in your commerce then pass value to shippingCountries
-  // and we pass one value to shippingCountriey
-
-  // then we focus on subdevision countries in shippingCountriey
-  // So Fetching subdevisions
-  // set all subdevisions fetched in  shippingSubdivisions
-  // and we pass the first value to shippingSubdivision
-
-  // In form we loop to display all countries
-  // when select change country , shippingCountriey will change so subdevisions will also change
-
-  // Fetching shipping options
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -32,17 +53,24 @@ const AddressForm = ({ token, submitData }) => {
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
 
-  const methods = useForm();
-
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // 1)
   // Fetching All Countries
-  async function fetchAllCountries(passMeToken, submitData) {
+  async function fetchAllCountries(passMeToken) {
     let { countries } = await commerce.services.localeListShippingCountries(
       passMeToken
     );
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
   }
+  // Use Effect for all countries, on render and when token updates
+  useEffect(() => {
+    fetchAllCountries(token.id);
+  }, [token]);
+  /////////////////////////////////////////////////////////////////////////////////////////
 
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // 2)
   // Fetching Subdevisions
   async function fetchAllSubdevisions(passMeToken, country) {
     let { subdivisions } =
@@ -53,7 +81,15 @@ const AddressForm = ({ token, submitData }) => {
     setShippingSubdivisions(subdivisions);
     setShippingSubdivision(Object.keys(subdivisions)[0]);
   }
+  // Use effect for subdevision of first country, on render and when shippingCountry updates
+  useEffect(() => {
+    if (shippingCountry) fetchAllSubdevisions(token.id, shippingCountry);
+  }, [shippingCountry]);
+  /////////////////////////////////////////////////////////////////////////////////////////
 
+  /////////////////////////////////////////////////////////////////////////////////////////
+  // 3)
+  // Fetching Options
   async function fetchAllOptions(
     passMeToken,
     shippingCountry,
@@ -66,29 +102,20 @@ const AddressForm = ({ token, submitData }) => {
     setShippingOptions(options);
     setShippingOption(options[0].id);
   }
-
-  // Use Effect for all countries
-  useEffect(() => {
-    fetchAllCountries(token.id);
-  }, [token]);
-
-  // Use effect for fir subdevision of first country
-  useEffect(() => {
-    if (shippingCountry) fetchAllSubdevisions(token.id, shippingCountry);
-  }, [shippingCountry]);
-
-  // Use effect for fir subdevision of first subdivision
+  // Use effect for option of first subdivision
   useEffect(() => {
     if (shippingSubdivision) {
       fetchAllOptions(token.id, shippingCountry, shippingSubdivision);
     }
   }, [shippingSubdivision]);
+  /////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <>
       <p>Shipping address</p>
       <FormProvider {...methods}>
         <form
+          // 4)
           onSubmit={handleSubmit((data) => {
             submitData({
               ...data,
@@ -98,6 +125,7 @@ const AddressForm = ({ token, submitData }) => {
             });
           })}
         >
+          {/* inputs filled by client  */}
           <Grid>
             <TextField
               {...register("firstName", { required: true })}
@@ -131,11 +159,13 @@ const AddressForm = ({ token, submitData }) => {
               label="Zip / Postal code"
             />
           </Grid>
+          {/*  */}
+
           <div>
-            <Grid item xs={12} sm={6}>
+            {/* 1 */}
+            <Grid>
               <p>Shipping Country</p>
               <Select
-                fullWidth
                 value={shippingCountry}
                 onChange={(e) => setShippingCountry(e.target.value)}
               >
@@ -146,11 +176,12 @@ const AddressForm = ({ token, submitData }) => {
                 ))}
               </Select>
             </Grid>
+            {/*  */}
 
-            <Grid item xs={12} sm={6}>
+            {/* 2 */}
+            <Grid>
               <p>Shipping Subdevisions</p>
               <Select
-                fullWidth
                 value={shippingSubdivision}
                 onChange={(e) => setShippingSubdivision(e.target.value)}
               >
@@ -161,11 +192,12 @@ const AddressForm = ({ token, submitData }) => {
                 ))}
               </Select>
             </Grid>
+            {/*  */}
 
-            <Grid item xs={12} sm={6}>
+            {/* 3 */}
+            <Grid>
               <p>Shipping Options</p>
               <Select
-                fullWidth
                 value={shippingOption}
                 onChange={(e) => setShippingOption(e.target.value)}
               >
@@ -177,6 +209,7 @@ const AddressForm = ({ token, submitData }) => {
                 ))}
               </Select>
             </Grid>
+            {/*  */}
           </div>
           <br />
           <button type="submit">Submit</button>
