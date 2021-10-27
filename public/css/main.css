@@ -100,11 +100,25 @@ a {
   align-items: center;
 }
 .cartContainer .emptyCart_text {
-  font-weight: 700;
-  font-size: 2.5rem;
-  margin-left: 30px;
+  border: 2px solid orange;
+  padding: 10px;
+  box-shadow: 0 0 10px black;
+  background-color: orange;
+  color: wheat;
+  font-size: 2.3rem;
+  font-weight: 800;
 }
-.cartContainer .emptyCart img {
+.cartContainer .emptyCart_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartContainer .emptyCart_image-woman {
+  height: 270px;
+  filter: drop-shadow(2px 4px 7px red);
+}
+.cartContainer .emptyCart_image-man {
+  height: 200px;
   filter: drop-shadow(2px 4px 7px red);
 }
 .cartContainer .button_empty {

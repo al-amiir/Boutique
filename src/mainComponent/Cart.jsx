@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SingleCart from "../components/SingleCart";
 import Loading from "../components/Loading";
-import AddToCartImage from "../style/material/add-cart.png";
+import ManShoppig from "../style/material/man-shopping.png";
+import WomanShoppig from "../style/material/woman-shopping.png";
+
 // As we are in Cart component,  we have two component, FullCart and EmptyCart
 
 // We recive cart from App.js and it is looks like this :
@@ -61,7 +63,10 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
     return (
       <div className="emptyCart">
         <p className="emptyCart_text">Your Cart is empty, Add some products dude!</p>
-        <img src={AddToCartImage} alt="" />
+        <div className="emptyCart_image">
+          <img className="emptyCart_image-woman" src={WomanShoppig} alt="" />
+          <img className="emptyCart_image-man" src={ManShoppig} alt="" />
+        </div>
       </div>
     );
   }
