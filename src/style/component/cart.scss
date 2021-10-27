@@ -24,6 +24,20 @@
       margin-bottom: 20px;
     }
   }
+  .emptyCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_text {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-left: 30px;
+    }
+    img {
+      filter: drop-shadow(2px 4px 7px red);
+    }
+  }
   .button_empty {
     display: block;
     width: 100px;

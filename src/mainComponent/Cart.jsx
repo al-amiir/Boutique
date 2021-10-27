@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SingleCart from "../components/SingleCart";
-
+import Loading from "../components/Loading";
+import AddToCartImage from "../style/material/add-cart.png";
 // As we are in Cart component,  we have two component, FullCart and EmptyCart
 
 // We recive cart from App.js and it is looks like this :
@@ -57,15 +58,15 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
     );
   }
   function EmptyCart() {
-    return <div className="emptyCart">Your Cart is empty, Add some products dude!</div>;
+    return (
+      <div className="emptyCart">
+        <p className="emptyCart_text">Your Cart is empty, Add some products dude!</p>
+        <img src={AddToCartImage} alt="" />
+      </div>
+    );
   }
-  if (!cart.line_items) return <>Loading...</>;
-  return (
-    <div className="cartContainer">
-      <h1>Cart</h1>
-      {!cart.line_items.length ? <EmptyCart /> : <FullCart />}
-    </div>
-  );
+  if (!cart.line_items) return <Loading />;
+  return <div className="cartContainer">{!cart.line_items.length ? <EmptyCart /> : <FullCart />}</div>;
 };
 
 export default Cart;
