@@ -3,6 +3,10 @@ import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import { commerce } from "../library/commerce";
 import Confirmation from "../components/Confirmation";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+
 // Lets Read What is Checkout in commerce.js :
 //
 // The checkout resource is used to navigate your customers
@@ -29,7 +33,7 @@ import Confirmation from "../components/Confirmation";
 //---------------------------------------------------------------------------------------
 
 const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMessage }) => {
-  const [steps, setSteps] = useState(["AddressForm", "PaymentForm"]);
+  const [steps, setSteps] = useState(["AddressForm", "PaymentForm", "Confirmation"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
   const [shippingData, setShippingData] = useState([]);
@@ -70,21 +74,22 @@ const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMe
 
   return (
     <div className="checkout">
-      <div className="checkout_circles">
-        {steps.map((label, i) => (
-          <div key={i}>
-            {i <= checker && <span className="checkout_circles-icons"></span>}
-            <span>{label}</span>
-          </div>
+      {/* <div className="checkout_circles"> */}
+      <Stepper className="checkout_stepper" activeStep={checker} alternativeLabel>
+        {steps.map((label) => (
+          <Step key={label}>
+            <StepLabel>{label}</StepLabel>
+          </Step>
         ))}
-      </div>
+      </Stepper>
+      <span className="checkout_borders"></span>
       {checker === steps.length ? <Confirmation finished={finished} order={order} errorMessage={errorMessage} /> : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} setErrorMessage={setErrorMessage} handleCaptureCheckout={handleCaptureCheckout} time={time} />}
-      <button disabled={checker === 0 ? true : false} onClick={backStep}>
+      {/* <button disabled={checker === 0 ? true : false} onClick={backStep}>
         back
       </button>
       <button disabled={checker === 2 ? true : false} onClick={nextStep}>
         Next
-      </button>
+      </button> */}
     </div>
   );
 };

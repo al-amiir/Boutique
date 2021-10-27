@@ -102,7 +102,7 @@ const AddressForm = ({ token, submitData }) => {
 
   return (
     <>
-      <p>Shipping address</p>
+      {/* <p className="form_header">Shipping address</p> */}
       <FormProvider {...methods}>
         <form
           // 4)
@@ -116,22 +116,21 @@ const AddressForm = ({ token, submitData }) => {
           })}
         >
           {/* inputs filled by client  */}
-          <Grid>
+          <div className="form_inputs">
             <TextField {...register("firstName", { required: true })} name="firstName" label="First name" />
             <TextField {...register("lastName", { required: true })} name="lastName" label="Last name" />
             <TextField {...register("address1", { required: true })} name="address1" label="Address line 1" />
             <TextField {...register("city", { required: true })} name="city" label="City" />
-
             <TextField {...register("email", { required: true })} name="email" label="Email" />
             <TextField {...register("zip", { required: true })} name="zip" label="Zip / Postal code" />
-          </Grid>
+          </div>
           {/*  */}
 
           <div>
             {/* 1 */}
             <Grid>
-              <p>Shipping Country</p>
-              <Select value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
+              <p className="form_select-header">Shipping Country</p>
+              <Select className="form_select" value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
                 {Object.entries(shippingCountries).map(([id, country]) => (
                   <MenuItem key={id} value={id}>
                     {country}
@@ -143,8 +142,8 @@ const AddressForm = ({ token, submitData }) => {
 
             {/* 2 */}
             <Grid>
-              <p>Shipping Subdevisions</p>
-              <Select value={shippingSubdivision} onChange={(e) => setShippingSubdivision(e.target.value)}>
+              <p className="form_select-header">Shipping Subdevisions</p>
+              <Select className="form_select" value={shippingSubdivision} onChange={(e) => setShippingSubdivision(e.target.value)}>
                 {Object.entries(shippingSubdivisions).map(([key, country]) => (
                   <MenuItem key={key} value={key}>
                     {country}
@@ -156,12 +155,12 @@ const AddressForm = ({ token, submitData }) => {
 
             {/* 3 */}
             <Grid>
-              <p>Shipping Options</p>
-              <Select value={shippingOption} onChange={(e) => setShippingOption(e.target.value)}>
-                {shippingOptions.map((op) => (
-                  <MenuItem key={op.id} value={op.id}>
-                    {op.description}
-                    {op.price.formatted_with_symbol}
+              <p className="form_select-header">Shipping Options</p>
+              <Select className="form_select" value={shippingOption} onChange={(e) => setShippingOption(e.target.value)}>
+                {shippingOptions.map((option) => (
+                  <MenuItem key={option.id} value={option.id}>
+                    {`${option.description}  `}
+                    {option.price.formatted_with_symbol}
                   </MenuItem>
                 ))}
               </Select>
@@ -169,7 +168,9 @@ const AddressForm = ({ token, submitData }) => {
             {/*  */}
           </div>
           <br />
-          <button type="submit">Submit</button>
+          <button className="form_submit" type="submit">
+            Submit
+          </button>
         </form>
       </FormProvider>
     </>

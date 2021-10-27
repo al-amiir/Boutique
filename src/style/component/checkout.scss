@@ -1,16 +1,69 @@
 .checkout {
-  width: 400px;
-  border: 1px solid brown;
-  &_circles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  &_stepper {
+    border: 1px solid #bdab8a;
+    border-radius: 3px;
+    box-shadow: 0 0 7px black;
+    padding: 7px;
+    background-color: #52ffbfab;
+  }
+  &_borders {
+    width: 150px;
+    padding: 7px;
+    border-right: 2px solid #bdab8a;
+    border-left: 2px solid #bdab8a;
+  }
+  .form_header {
+    font-size: 1.5rem;
+  }
+  form {
+    max-width: 400px;
     display: flex;
-    justify-content: space-around;
-    div {
-      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background-color: #e89700;
+    border: 1px solid #bcaa89;
+    box-shadow: 0 0 7px black;
+
+    border-radius: 2px;
+    label {
+      font-size: 1.2rem;
+      // color: black;
     }
-    &-icons {
-      background-color: cornflowerblue;
-      width: 10px;
-      height: 10px;
+    .form {
+      &_inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        margin-bottom: 10px;
+        div {
+          background-color: white;
+          border-radius: 6px;
+        }
+      }
+      &_select {
+        width: 100%;
+        background-color: #86f1bb;
+        font-size: 1.2rem;
+        &-header {
+          margin: 5px 0px;
+        }
+      }
+      &_submit {
+        background-color: blue;
+        color: white;
+        padding: 6px;
+        border-radius: 3px;
+        width: 91px;
+        font-weight: 900;
+      }
     }
   }
 }
