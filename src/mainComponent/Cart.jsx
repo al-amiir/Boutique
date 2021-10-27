@@ -37,14 +37,22 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
             <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
           ))}
         </div>
-        <div className="cart_details">
-          <span className="cart_details-totalItems">total items: {cart.total_items}</span>
-          <span className="cart_details-totalPrice">total price : {cart.subtotal.formatted_with_symbol}</span>
+        <div className="fullCart_total">
+          <div className="fullCart_details">
+            <span className="fullCart_details-totalItems">
+              <strong>total items: </strong> {cart.total_items}
+            </span>
+            <span className="fullCart_details-totalPrice">
+              <strong>total price :</strong> {cart.subtotal.formatted_with_symbol}
+            </span>
+          </div>
+          <button className="button_empty" onClick={() => handleAddEmptyCart()}>
+            Empty Cart
+          </button>
+          <Link to="/checkout">
+            <button className="button_checkout">Checkout</button>
+          </Link>
         </div>
-        <button onClick={() => handleAddEmptyCart()}>Empty</button>
-        <Link to="/checkout">
-          <button>Checkout</button>
-        </Link>
       </div>
     );
   }
