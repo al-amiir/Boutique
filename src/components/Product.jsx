@@ -11,7 +11,7 @@ const Product = ({ product, handleAddToCart }) => {
         {console.log(product)}
       </div>
       <button onClick={() => handleAddToCart(product.id, 1)}>
-        <i class="fas fa-plus"></i>
+        <i className="fas fa-plus"></i>
         Add To Cart
       </button>
     </div>

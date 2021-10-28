@@ -105,6 +105,7 @@ const AddressForm = ({ token, submitData }) => {
       {/* <p className="form_header">Shipping address</p> */}
       <FormProvider {...methods}>
         <form
+          className="form_address"
           // 4)
           onSubmit={handleSubmit((data) => {
             submitData({

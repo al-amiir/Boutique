@@ -12,7 +12,7 @@ const Navbar = ({ cartTotalItem }) => {
       <Link to="/cart">
         <button className="navbar_cart">
           {/* <img src={AddToCartImage} alt="" /> */}
-          <span class="material-icons">add_shopping_cart</span>
+          <span className="material-icons">add_shopping_cart</span>
           <p>{cartTotalItem}</p>
         </button>
       </Link>

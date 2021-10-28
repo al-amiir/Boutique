@@ -1,9 +1,8 @@
 import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
-import React from "react";
+import React, { useState } from "react";
 import LastCartReview from "./LastCartReview";
-
+import cash from "../style/material/cash.png";
 // Here we use stripe to complete payment of cart
 // 1)
 // load stripe
@@ -22,6 +21,7 @@ const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
 // Create handleSubmit method to deal with recieved elements and stripe
 
 const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureCheckout, setErrorMessage, time }) => {
+  const [pay, setPay] = useState(false);
   ////////////////////////////////////////////////////////////////////////////////
   // 5)
   const handleSubmit = async (event, elements, stripe) => {
@@ -79,10 +79,10 @@ const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureChe
       nextStep();
     }
   };
+
   return (
-    <div>
+    <div className="form_payment">
       <LastCartReview token={token} />
-      <hr />
 
       {/* 2 */}
       <Elements stripe={stripePromise}>
@@ -91,14 +91,19 @@ const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureChe
           {/* 4 */}
           {({ elements, stripe }) => (
             <form onSubmit={(e) => handleSubmit(e, elements, stripe)}>
+              <span className="form_payment_image">
+                <img src={cash} alt="" />
+              </span>
               <CardElement />
               <br /> <br />
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <button onClick={backStep}>Back</button>
-                <button type="submit" disabled={!stripe}>
+              <span style={{ display: "flex", justifyContent: "space-around" }}>
+                <button className="button_backstep" onClick={backStep}>
+                  Back
+                </button>
+                <button className="button_pay" type="submit" onClick={nextStep} disabled={!stripe}>
                   Pay {token.live.subtotal.formatted_with_symbol}
                 </button>
-              </div>
+              </span>
             </form>
           )}
         </ElementsConsumer>

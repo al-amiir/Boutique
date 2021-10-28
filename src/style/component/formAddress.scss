@@ -1,0 +1,44 @@
+.form {
+  &_address {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #e89700;
+    box-shadow: 0 0 7px black;
+
+    border-radius: 2px;
+    label {
+      font-size: 1.2rem;
+    }
+  }
+  &_inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 15px;
+    margin-bottom: 10px;
+    div {
+      background-color: white;
+      border-radius: 6px;
+    }
+  }
+  &_select {
+    width: 100%;
+    background-color: #86f1bb;
+    font-size: 1.2rem;
+    &-header {
+      margin: 5px 0px;
+    }
+  }
+  &_submit {
+    background-color: blue;
+    color: white;
+    padding: 6px;
+    border-radius: 3px;
+    width: 91px;
+    font-weight: 900;
+  }
+}

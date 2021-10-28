@@ -1,0 +1,72 @@
+.form {
+  &_payment {
+    width: 400px;
+    background-color: #e89700;
+    padding: 12px;
+    box-shadow: 0 0 9px black;
+    margin-bottom: 30px;
+    .last_cart_review {
+      border: 2px solid white;
+      border-radius: 3px;
+      &_div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid;
+        align-items: flex-end;
+        background-color: #e89700;
+        font-size: 1.3rem;
+        padding: 5px;
+        margin: 9px;
+        color: white;
+        font-weight: 700;
+      }
+      &_text {
+        display: flex;
+        flex-direction: column;
+      }
+      &_cost {
+      }
+      &_totalCost {
+        display: flex;
+        justify-content: space-between;
+        padding: 11px;
+        font-size: 1.9rem;
+        color: green;
+        margin: 10px;
+        font-weight: 700;
+      }
+    }
+
+    form {
+      div {
+        padding: 9px;
+        background-color: white;
+        margin: 10px;
+      }
+    }
+    &_image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      img {
+        height: 140px;
+        width: 140px;
+      }
+    }
+    .button {
+      &_pay {
+        background-color: #86f1bb;
+        padding: 10px;
+        border-radius: 2px;
+      }
+      &_backstep {
+        background-color: #000000;
+        padding: 10px;
+        border-radius: 2px;
+        color: white;
+      }
+    }
+  }
+}
