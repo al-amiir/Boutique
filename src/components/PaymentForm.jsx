@@ -95,7 +95,7 @@ const PaymentForm = ({ shippingData, token, nextStep, backStep, handleCaptureChe
                 <img src={cash} alt="" />
               </span>
               <CardElement />
-              <br /> <br />
+
               <span style={{ display: "flex", justifyContent: "space-around" }}>
                 <button className="button_backstep" onClick={backStep}>
                   Back

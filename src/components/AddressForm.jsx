@@ -5,9 +5,10 @@ import Grid from "@mui/material/Grid";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 import { commerce } from "../library/commerce";
-
+import map from "../style/material/map.png";
 // So here we use react hook form to easily get data from our form
 // What is logic here ?
 // - we have form with some inputs, client should fill those inputs
@@ -118,20 +119,20 @@ const AddressForm = ({ token, submitData }) => {
         >
           {/* inputs filled by client  */}
           <div className="form_inputs">
-            <TextField {...register("firstName", { required: true })} name="firstName" label="First name" />
-            <TextField {...register("lastName", { required: true })} name="lastName" label="Last name" />
-            <TextField {...register("address1", { required: true })} name="address1" label="Address line 1" />
-            <TextField {...register("city", { required: true })} name="city" label="City" />
-            <TextField {...register("email", { required: true })} name="email" label="Email" />
-            <TextField {...register("zip", { required: true })} name="zip" label="Zip / Postal code" />
+            <TextField {...register("firstName", { required: true })} required name="firstName" label="First name" />
+            <TextField {...register("lastName", { required: true })} required name="lastName" label="Last name" />
+            <TextField {...register("address1", { required: true })} required name="address1" label="Address line 1" />
+            <TextField {...register("city", { required: true })} required name="city" label="City" />
+            <TextField {...register("email", { required: true })} required name="email" label="Email" />
+            <TextField {...register("zip", { required: true })} required name="zip" label="Zip / Postal code" />
           </div>
           {/*  */}
-
+          <img className="map" src={map} alt="" />
           <div>
             {/* 1 */}
             <Grid>
               <p className="form_select-header">Shipping Country</p>
-              <Select className="form_select" value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
+              <Select varient="h3" className="form_select" value={shippingCountry} onChange={(e) => setShippingCountry(e.target.value)}>
                 {Object.entries(shippingCountries).map(([id, country]) => (
                   <MenuItem key={id} value={id}>
                     {country}

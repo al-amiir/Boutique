@@ -6,7 +6,7 @@ import Confirmation from "../components/Confirmation";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-
+import Typography from "@mui/material/Typography";
 // Lets Read What is Checkout in commerce.js :
 //
 // The checkout resource is used to navigate your customers
@@ -78,18 +78,14 @@ const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMe
       <Stepper className="checkout_stepper" activeStep={checker} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
-            <StepLabel>{label}</StepLabel>
+            <StepLabel>
+              <Typography variant="h6"> {label}</Typography>
+            </StepLabel>
           </Step>
         ))}
       </Stepper>
       <span className="checkout_borders"></span>
       {checker === steps.length ? <Confirmation finished={finished} order={order} errorMessage={errorMessage} /> : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} setErrorMessage={setErrorMessage} handleCaptureCheckout={handleCaptureCheckout} time={time} />}
-      {/* <button disabled={checker === 0 ? true : false} onClick={backStep}>
-        back
-      </button>
-      <button disabled={checker === 2 ? true : false} onClick={nextStep}>
-        Next
-      </button> */}
     </div>
   );
 };

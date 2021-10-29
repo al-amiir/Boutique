@@ -3,12 +3,13 @@
   height: 40px;
   margin: 100px auto;
   transform: scale(2.5);
+  filter: drop-shadow(2px 4px 6px crimson);
 }
 
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: #333;
+  background-color: #a70000;
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;

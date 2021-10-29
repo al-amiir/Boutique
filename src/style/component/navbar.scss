@@ -5,10 +5,25 @@
   align-items: center;
   padding: 15px;
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 0 10px black;
+  color: wheat;
+  .logo {
+    color: #f300df;
+    font-size: 3rem;
+    filter: drop-shadow(2px 3px 4px #f300df) contrast(1.2) saturate(1.2);
+  }
+  a {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: wheat;
+  }
   &_cart {
     display: flex;
     align-items: center;
+    span {
+      color: wheat;
+    }
     p {
       background-color: #22a00b;
       color: white;

@@ -1,6 +1,9 @@
 .products {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 24rem);
+  grid-gap: 22px;
+  justify-content: center;
+  align-items: center;
 }
 
 .product {
@@ -9,12 +12,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 10px;
   box-shadow: 0 0 10px #000000;
-  padding: 20px;
+  padding: 18px;
   padding-bottom: 11px;
   background-color: #0000007d;
-  z-index: 1;
   &_image {
     display: flex;
     flex-direction: column;
@@ -46,22 +47,22 @@
     background-color: #ff6224;
     color: #050801;
     box-shadow: 0 0 5px #ff6224, 0 0 25px #ff6224, 0 0 50px #ff6224, 0 0 200px #ff6224;
-    span:nth-child(2) {
+    span:nth-child(1) {
       top: -100%;
       right: 48%;
       width: 3px;
       height: 100%;
       background: linear-gradient(180deg, transparent, rgb(0, 0, 0));
-      animation: animate2 1s linear infinite;
+      animation: animate1 1s linear infinite;
       animation-delay: 0.25s;
     }
-    span:nth-child(3) {
+    span:nth-child(2) {
       bottom: 50%;
       right: -100%;
       width: 100%;
       height: 3px;
       background: linear-gradient(270deg, transparent, rgb(0, 0, 0));
-      animation: animate3 1s linear infinite;
+      animation: animate2 1s linear infinite;
       animation-delay: 0.5s;
     }
   }
@@ -70,7 +71,7 @@
     display: block;
   }
 
-  @keyframes animate2 {
+  @keyframes animate1 {
     0% {
       top: -100%;
     }
@@ -80,7 +81,7 @@
     }
   }
 
-  @keyframes animate3 {
+  @keyframes animate2 {
     0% {
       right: -100%;
     }

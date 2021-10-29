@@ -4,6 +4,7 @@ import SingleCart from "../components/SingleCart";
 import Loading from "../components/Loading";
 import ManShoppig from "../style/material/man-shopping.png";
 import WomanShoppig from "../style/material/woman-shopping.png";
+import businessReport from "../style/material/business-report.png";
 
 // As we are in Cart component,  we have two component, FullCart and EmptyCart
 
@@ -34,27 +35,30 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
   // 1)
   function FullCart() {
     return (
-      <div className="fullCart">
-        <div className="fullCart_products">
-          {cart.line_items.map((c) => (
-            <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
-          ))}
-        </div>
-        <div className="fullCart_total">
-          <div className="fullCart_details">
-            <span className="fullCart_details-totalItems">
-              <strong>total items: </strong> {cart.total_items}
-            </span>
-            <span className="fullCart_details-totalPrice">
-              <strong>total price :</strong> {cart.subtotal.formatted_with_symbol}
-            </span>
+      <div>
+        {/* <img src={businessReport} alt="" /> */}
+        <div className="fullCart">
+          <div className="fullCart_products">
+            {cart.line_items.map((c) => (
+              <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
+            ))}
           </div>
-          <button className="button_empty" onClick={() => handleAddEmptyCart()}>
-            Empty Cart
-          </button>
-          <Link to="/checkout">
-            <button className="button_checkout">Checkout</button>
-          </Link>
+          <div className="fullCart_total">
+            <div className="fullCart_details">
+              <span className="fullCart_details-totalItems">
+                <strong>total items: </strong> {cart.total_items}
+              </span>
+              <span className="fullCart_details-totalPrice">
+                <strong>total price :</strong> {cart.subtotal.formatted_with_symbol}
+              </span>
+            </div>
+            <button className="button_empty" onClick={() => handleAddEmptyCart()}>
+              Empty Cart
+            </button>
+            <Link to="/checkout">
+              <button className="button_checkout">Checkout</button>
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -62,7 +66,9 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
   function EmptyCart() {
     return (
       <div className="emptyCart">
-        <p className="emptyCart_text">Your Cart is empty, Add some products dude!</p>
+        <p className="emptyCart_text sign">
+          Your Cart is <span className="flicker">e</span>mp <span className="flicker">t</span> y, Add some <span className="fast-flicker">products </span>dude!
+        </p>
         <div className="emptyCart_image">
           <img className="emptyCart_image-woman" src={WomanShoppig} alt="" />
           <img className="emptyCart_image-man" src={ManShoppig} alt="" />

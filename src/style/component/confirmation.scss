@@ -1,7 +1,8 @@
 .confirmation {
   width: 400px;
-  background-color: darkcyan;
   padding: 18px;
+  background-color: #005c6140;
+  box-shadow: 0px 0px 10px 3px #01003a;
 }
 .endShipping {
   display: flex;
@@ -12,8 +13,11 @@
   color: white;
   font-weight: 800;
   filter: drop-shadow(2px 4px 6px black);
+
   &_image {
     height: 150px;
+    filter: drop-shadow(2px 4px 1px black) contrast(1.1) saturate(1.1);
+    margin-bottom: 10px;
   }
   &_home {
     background-color: wheat;

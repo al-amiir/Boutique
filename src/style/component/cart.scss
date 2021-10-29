@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+
 .cartContainer {
   .fullCart {
     display: flex;
@@ -12,10 +14,11 @@
       flex-direction: column;
       align-items: center;
       margin-left: 15px;
-      padding: 9px 7px;
-      border-top: 2px solid;
-      height: 149px;
-      border-bottom: 2px solid;
+      padding: 12px 23px;
+      border: 2px solid black;
+      color: wheat;
+      box-shadow: 0 0 10px black;
+      height: 161px;
     }
     &_details {
       display: flex;
@@ -29,14 +32,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     &_text {
-      border: 2px solid orange;
-      padding: 10px;
-      box-shadow: 0 0 10px black;
-      background-color: orange;
-      color: wheat;
-      font-size: 2.3rem;
-      font-weight: 800;
+      font-family: "Monoton", cursive;
+      color: rgb(255, 66, 198);
+      font-size: 3.3rem;
+      text-align: center;
     }
     &_image {
       display: flex;
@@ -44,11 +45,11 @@
       align-items: center;
       &-woman {
         height: 270px;
-        filter: drop-shadow(2px 4px 7px red);
+        filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
       }
       &-man {
         height: 200px;
-        filter: drop-shadow(2px 4px 7px red);
+        filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
       }
     }
   }

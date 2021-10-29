@@ -5,9 +5,6 @@ const Product = ({ product, handleAddToCart }) => {
     <div className="product">
       <div className="product_image">
         <img src={product.image.url} alt=" " />
-        {/* <span className="neon_line"></span>
-        <span className="neon_line"></span>
-        <span className="neon_line"></span> */}
       </div>
       <div className="product_text">
         <p>{product.name}</p>
@@ -16,8 +13,6 @@ const Product = ({ product, handleAddToCart }) => {
         {console.log(product)}
       </div>
       <button onClick={() => handleAddToCart(product.id, 1)}>
-        <span></span>
-        <span></span>
         <span></span>
         <span></span>
         <i className="fas fa-plus"></i>

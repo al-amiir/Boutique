@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 *,
 *::before,
 *::after {
@@ -27,8 +28,11 @@ a {
 }
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 24rem);
+  grid-gap: 22px;
+  justify-content: center;
+  align-items: center;
 }
 
 .product {
@@ -37,12 +41,10 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 10px;
   box-shadow: 0 0 10px #000000;
-  padding: 20px;
+  padding: 18px;
   padding-bottom: 11px;
   background-color: #0000007d;
-  z-index: 1;
 }
 .product_image {
   display: flex;
@@ -76,29 +78,29 @@ a {
   color: #050801;
   box-shadow: 0 0 5px #ff6224, 0 0 25px #ff6224, 0 0 50px #ff6224, 0 0 200px #ff6224;
 }
-.product button:hover span:nth-child(2) {
+.product button:hover span:nth-child(1) {
   top: -100%;
   right: 48%;
   width: 3px;
   height: 100%;
   background: linear-gradient(180deg, transparent, black);
-  animation: animate2 1s linear infinite;
+  animation: animate1 1s linear infinite;
   animation-delay: 0.25s;
 }
-.product button:hover span:nth-child(3) {
+.product button:hover span:nth-child(2) {
   bottom: 50%;
   right: -100%;
   width: 100%;
   height: 3px;
   background: linear-gradient(270deg, transparent, black);
-  animation: animate3 1s linear infinite;
+  animation: animate2 1s linear infinite;
   animation-delay: 0.5s;
 }
 .product button span {
   position: absolute;
   display: block;
 }
-@keyframes animate2 {
+@keyframes animate1 {
   0% {
     top: -100%;
   }
@@ -106,7 +108,7 @@ a {
     top: 100%;
   }
 }
-@keyframes animate3 {
+@keyframes animate2 {
   0% {
     right: -100%;
   }
@@ -129,10 +131,11 @@ a {
   flex-direction: column;
   align-items: center;
   margin-left: 15px;
-  padding: 9px 7px;
-  border-top: 2px solid;
-  height: 149px;
-  border-bottom: 2px solid;
+  padding: 12px 23px;
+  border: 2px solid black;
+  color: wheat;
+  box-shadow: 0 0 10px black;
+  height: 161px;
 }
 .cartContainer .fullCart_details {
   display: flex;
@@ -147,13 +150,10 @@ a {
   align-items: center;
 }
 .cartContainer .emptyCart_text {
-  border: 2px solid orange;
-  padding: 10px;
-  box-shadow: 0 0 10px black;
-  background-color: orange;
-  color: wheat;
-  font-size: 2.3rem;
-  font-weight: 800;
+  font-family: "Monoton", cursive;
+  color: #ff42c6;
+  font-size: 3.3rem;
+  text-align: center;
 }
 .cartContainer .emptyCart_image {
   display: flex;
@@ -162,11 +162,11 @@ a {
 }
 .cartContainer .emptyCart_image-woman {
   height: 270px;
-  filter: drop-shadow(2px 4px 7px red);
+  filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
 }
 .cartContainer .emptyCart_image-man {
   height: 200px;
-  filter: drop-shadow(2px 4px 7px red);
+  filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
 }
 .cartContainer .button_empty {
   display: block;
@@ -189,16 +189,19 @@ a {
   display: flex;
   width: auto;
   justify-content: space-around;
-  padding: 20px;
-  border: 2px solid;
+  padding: 26px;
+  border: 2px solid black;
   width: 320px;
   margin-bottom: 20px;
+  background-color: #00000040;
+  box-shadow: 0 0 10px black;
+  color: wheat;
 }
 .singleCart_image {
   width: 100px;
 }
 .singleCart_text {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -240,7 +243,7 @@ a {
 .checkout_stepper {
   border: 1px solid #bdab8a;
   border-radius: 3px;
-  box-shadow: 0 0 7px black;
+  box-shadow: 0px 0px 10px 3px #01003a;
   padding: 7px;
   background-color: #52ffbfab;
 }
@@ -261,11 +264,26 @@ a {
   align-items: center;
   padding: 15px;
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 0 10px black;
+  color: wheat;
+}
+.navbar .logo {
+  color: #f300df;
+  font-size: 3rem;
+  filter: drop-shadow(2px 3px 4px #f300df) contrast(1.2) saturate(1.2);
+}
+.navbar a {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: wheat;
 }
 .navbar_cart {
   display: flex;
   align-items: center;
+}
+.navbar_cart span {
+  color: wheat;
 }
 .navbar_cart p {
   background-color: #22a00b;
@@ -285,12 +303,13 @@ a {
   height: 40px;
   margin: 100px auto;
   transform: scale(2.5);
+  filter: drop-shadow(2px 4px 6px crimson);
 }
 
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: #333;
+  background-color: #a70000;
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
@@ -368,12 +387,17 @@ a {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #e89700;
-  box-shadow: 0 0 7px black;
+  background-color: #005c6140;
+  box-shadow: 0px 0px 10px 3px #01003a;
+  border-radius: 2px;
   border-radius: 2px;
 }
 .form_address label {
   font-size: 1.2rem;
+}
+.form_address .map {
+  height: 176px;
+  filter: drop-shadow(2px 4px 6px black) contrast(1.1) saturate(1.2);
 }
 .form_inputs {
   display: grid;
@@ -393,11 +417,13 @@ a {
 }
 .form_select-header {
   margin: 5px 0px;
+  color: white;
+  font-weight: 700;
 }
 .form_submit {
   background-color: blue;
   color: white;
-  padding: 6px;
+  padding: 10px;
   border-radius: 3px;
   width: 91px;
   font-weight: 900;
@@ -405,21 +431,20 @@ a {
 
 .form_payment {
   width: 400px;
-  background-color: #e89700;
-  padding: 12px;
-  box-shadow: 0 0 9px black;
-  margin-bottom: 30px;
-}
-.form_payment .last_cart_review {
-  border: 2px solid white;
-  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: #005c6140;
+  box-shadow: 0px 0px 10px 3px #01003a;
+  border-radius: 2px;
+  border-radius: 2px;
 }
 .form_payment .last_cart_review_div {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid;
   align-items: flex-end;
-  background-color: #e89700;
   font-size: 1.3rem;
   padding: 5px;
   margin: 9px;
@@ -436,7 +461,6 @@ a {
   padding: 11px;
   font-size: 1.9rem;
   color: green;
-  margin: 10px;
   font-weight: 700;
 }
 .form_payment form div {
@@ -452,8 +476,8 @@ a {
   background-color: transparent;
 }
 .form_payment_image img {
-  height: 140px;
-  width: 140px;
+  height: 150px;
+  filter: drop-shadow(0px 0px 8px black) contrast(1.1) saturate(1.1);
 }
 .form_payment .button_pay {
   background-color: #86f1bb;
@@ -469,8 +493,9 @@ a {
 
 .confirmation {
   width: 400px;
-  background-color: darkcyan;
   padding: 18px;
+  background-color: #005c6140;
+  box-shadow: 0px 0px 10px 3px #01003a;
 }
 
 .endShipping {
@@ -485,12 +510,151 @@ a {
 }
 .endShipping_image {
   height: 150px;
+  filter: drop-shadow(2px 4px 1px black) contrast(1.1) saturate(1.1);
+  margin-bottom: 10px;
 }
 .endShipping_home {
   background-color: wheat;
   padding: 8px;
   border-radius: 2px;
   margin-top: 10px;
+}
+
+.sign {
+  background-image: radial-gradient(ellipse 50% 35% at 50% 50%, #6b1839, transparent);
+  letter-spacing: 2;
+  text-transform: uppercase;
+  font-size: 6em;
+  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  animation: shine 2s forwards, flicker 3s infinite;
+}
+
+.flicker {
+  animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+  animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+@keyframes blink {
+  0%, 22%, 36%, 75% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+  28%, 33% {
+    color: #ff65bd;
+    text-shadow: none;
+  }
+  82%, 97% {
+    color: #ff2483;
+    text-shadow: none;
+  }
+}
+@keyframes shine {
+  0% {
+    color: #6b1839;
+    text-shadow: none;
+  }
+  100% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+}
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.85;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  11% {
+    opacity: 0.922;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  14% {
+    opacity: 0.95;
+  }
+  16% {
+    opacity: 0.98;
+  }
+  17% {
+    opacity: 0.9;
+  }
+  19% {
+    opacity: 0.93;
+  }
+  20% {
+    opacity: 0.99;
+  }
+  24% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.94;
+  }
+  28% {
+    opacity: 0.98;
+  }
+  37% {
+    opacity: 0.93;
+  }
+  38% {
+    opacity: 0.5;
+  }
+  39% {
+    opacity: 0.96;
+  }
+  42% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.97;
+  }
+  46% {
+    opacity: 0.94;
+  }
+  56% {
+    opacity: 0.9;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.99;
+  }
+  68% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.95;
+  }
+  93% {
+    opacity: 0.93;
+  }
+  95% {
+    opacity: 0.95;
+  }
+  97% {
+    opacity: 0.93;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

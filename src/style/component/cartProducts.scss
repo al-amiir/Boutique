@@ -2,15 +2,18 @@
   display: flex;
   width: auto;
   justify-content: space-around;
-  padding: 20px;
-  border: 2px solid;
+  padding: 26px;
+  border: 2px solid black;
   width: 320px;
   margin-bottom: 20px;
+  background-color: #00000040;
+  box-shadow: 0 0 10px black;
+  color: wheat;
   &_image {
     width: 100px;
   }
   &_text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

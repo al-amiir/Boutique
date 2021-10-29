@@ -5,7 +5,7 @@ import AddToCartImage from "../style/material/add-cart.png";
 const Navbar = ({ cartTotalItem }) => {
   return (
     <div className="navbar">
-      <span>logo</span>
+      <span className="logo">Botique</span>
       <Link to="/">
         <span>Home</span>
       </Link>
