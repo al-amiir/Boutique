@@ -36,7 +36,6 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
   function FullCart() {
     return (
       <div>
-        {/* <img src={businessReport} alt="" /> */}
         <div className="fullCart">
           <div className="fullCart_products">
             {cart.line_items.map((c) => (
@@ -55,7 +54,7 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
             <button className="button_empty" onClick={() => handleAddEmptyCart()}>
               Empty Cart
             </button>
-            <Link to="/checkout">
+            <Link to="/Boutique/checkout/">
               <button className="button_checkout">Checkout</button>
             </Link>
           </div>

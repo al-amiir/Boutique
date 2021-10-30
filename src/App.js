@@ -103,19 +103,19 @@ const App = () => {
         <Navbar cartTotalItem={cart.total_items} />
 
         {/* 1) */}
-        <Route exact path="/">
+        <Route exact path="/Boutique/">
           <Products products={products} handleAddToCart={handleAddToCart} />
         </Route>
         {/*  */}
 
         {/* 2 */}
-        <Route path="/cart">
+        <Route path="/Boutique/cart/">
           <Cart cart={cart} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} handleAddEmptyCart={handleAddEmptyCart} />
         </Route>
         {/*  */}
 
         {/* 3 */}
-        <Route path="/Checkout">
+        <Route path="/Boutique/checkout/">
           <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} order={order} errorMessage={errorMessage} setErrorMessage={setErrorMessage} refreshCart={refreshCart} />
         </Route>
         {/*  */}

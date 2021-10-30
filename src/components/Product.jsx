@@ -17,8 +17,7 @@ const Product = ({ product, handleAddToCart }) => {
         }}
       >
         <span></span>
-        <span></span>
-        <i className="fas fa-plus"></i>
+        <span></span>+{/* <i className="fas fa-plus"></i> */}
       </button>
     </div>
   );

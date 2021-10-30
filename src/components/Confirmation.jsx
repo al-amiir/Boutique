@@ -14,7 +14,7 @@ let Confirmation = ({ errorMessage, order, finished, refreshCart }) => {
         <img className="endShipping_image" src={fullCart} alt="" />
         <p>Thank you for your purchases.</p>
         {/* <p>Order ref: {order.customer_reference}</p> */}
-        <Link to="/">
+        <Link to="/Boutique/">
           <button className="endShipping_home" onClick={refreshCart}>
             Home
           </button>
