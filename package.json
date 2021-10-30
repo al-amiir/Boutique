@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "animejs": "^3.2.1",
     "card": "^2.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

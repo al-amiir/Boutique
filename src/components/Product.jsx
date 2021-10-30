@@ -1,5 +1,5 @@
 import React from "react";
-
+import { addToCartAnimation } from "../globalFunction/global";
 const Product = ({ product, handleAddToCart }) => {
   return (
     <div className="product">
@@ -12,7 +12,12 @@ const Product = ({ product, handleAddToCart }) => {
         <p>{product.description}</p>
         {console.log(product)}
       </div>
-      <button onClick={() => handleAddToCart(product.id, 1)}>
+      <button
+        onClick={() => {
+          addToCartAnimation();
+          handleAddToCart(product.id, 1);
+        }}
+      >
         <span></span>
         <span></span>
         <i className="fas fa-plus"></i>

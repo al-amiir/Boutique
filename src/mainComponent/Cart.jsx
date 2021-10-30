@@ -67,7 +67,7 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
     return (
       <div className="emptyCart">
         <p className="emptyCart_text sign">
-          Your Cart is <span className="flicker">e</span>mp <span className="flicker">t</span> y, Add some <span className="fast-flicker">products </span>dude!
+          Your Cart is <span className="flicker">e</span>mp <span className="flicker">t</span> y, Add some <span className="fast-flicker">products </span>
         </p>
         <div className="emptyCart_image">
           <img className="emptyCart_image-woman" src={WomanShoppig} alt="" />
