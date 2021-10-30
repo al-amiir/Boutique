@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/my-app/static/js/main.28855059.chunk.js",
-    "main.js.map": "/my-app/static/js/main.28855059.chunk.js.map",
-    "runtime-main.js": "/my-app/static/js/runtime-main.1dcebb58.js",
-    "runtime-main.js.map": "/my-app/static/js/runtime-main.1dcebb58.js.map",
-    "static/js/2.09f401bd.chunk.js": "/my-app/static/js/2.09f401bd.chunk.js",
-    "static/js/2.09f401bd.chunk.js.map": "/my-app/static/js/2.09f401bd.chunk.js.map",
-    "index.html": "/my-app/index.html",
-    "static/js/2.09f401bd.chunk.js.LICENSE.txt": "/my-app/static/js/2.09f401bd.chunk.js.LICENSE.txt",
-    "static/media/cash.4a9115e9.png": "/my-app/static/media/cash.4a9115e9.png",
-    "static/media/fullCart.d8c68172.png": "/my-app/static/media/fullCart.d8c68172.png",
-    "static/media/man-shopping.9f1860db.png": "/my-app/static/media/man-shopping.9f1860db.png",
-    "static/media/map.bbef4708.png": "/my-app/static/media/map.bbef4708.png",
-    "static/media/woman-shopping.6f482976.png": "/my-app/static/media/woman-shopping.6f482976.png"
+    "main.js": "/Boutique/static/js/main.28855059.chunk.js",
+    "main.js.map": "/Boutique/static/js/main.28855059.chunk.js.map",
+    "runtime-main.js": "/Boutique/static/js/runtime-main.d553e795.js",
+    "runtime-main.js.map": "/Boutique/static/js/runtime-main.d553e795.js.map",
+    "static/js/2.09f401bd.chunk.js": "/Boutique/static/js/2.09f401bd.chunk.js",
+    "static/js/2.09f401bd.chunk.js.map": "/Boutique/static/js/2.09f401bd.chunk.js.map",
+    "index.html": "/Boutique/index.html",
+    "static/js/2.09f401bd.chunk.js.LICENSE.txt": "/Boutique/static/js/2.09f401bd.chunk.js.LICENSE.txt",
+    "static/media/cash.4a9115e9.png": "/Boutique/static/media/cash.4a9115e9.png",
+    "static/media/fullCart.d8c68172.png": "/Boutique/static/media/fullCart.d8c68172.png",
+    "static/media/man-shopping.9f1860db.png": "/Boutique/static/media/man-shopping.9f1860db.png",
+    "static/media/map.bbef4708.png": "/Boutique/static/media/map.bbef4708.png",
+    "static/media/woman-shopping.6f482976.png": "/Boutique/static/media/woman-shopping.6f482976.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1dcebb58.js",
+    "static/js/runtime-main.d553e795.js",
     "static/js/2.09f401bd.chunk.js",
     "static/js/main.28855059.chunk.js"
   ]
