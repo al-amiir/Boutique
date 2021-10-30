@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/static/js/main.28855059.chunk.js",
+    "main.js.map": "/static/js/main.28855059.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c2e8e232.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c2e8e232.js.map",
+    "static/js/2.09f401bd.chunk.js": "/static/js/2.09f401bd.chunk.js",
+    "static/js/2.09f401bd.chunk.js.map": "/static/js/2.09f401bd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.09f401bd.chunk.js.LICENSE.txt": "/static/js/2.09f401bd.chunk.js.LICENSE.txt",
+    "static/media/cash.4a9115e9.png": "/static/media/cash.4a9115e9.png",
+    "static/media/fullCart.d8c68172.png": "/static/media/fullCart.d8c68172.png",
+    "static/media/man-shopping.9f1860db.png": "/static/media/man-shopping.9f1860db.png",
+    "static/media/map.bbef4708.png": "/static/media/map.bbef4708.png",
+    "static/media/woman-shopping.6f482976.png": "/static/media/woman-shopping.6f482976.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2e8e232.js",
+    "static/js/2.09f401bd.chunk.js",
+    "static/js/main.28855059.chunk.js"
+  ]
+}
