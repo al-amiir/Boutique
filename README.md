@@ -8,7 +8,7 @@ Boutique is an e-commerce app, Focues mainly on:
 
 Created through ReactJs / React-Router / commerce.js / stripe 
 
-Setup
+#Setup
 Run the following commends
 
 npm install 
