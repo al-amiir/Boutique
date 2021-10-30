@@ -4,6 +4,10 @@
   .fullCart {
     display: flex;
     justify-content: center;
+    @include respond(large-phone) {
+      flex-direction: column;
+      align-items: center;
+    }
     &_products {
       display: flex;
       flex-direction: column;
@@ -46,10 +50,16 @@
       &-woman {
         height: 270px;
         filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
+        @include respond(phone) {
+          height: 190px;
+        }
       }
       &-man {
         height: 200px;
         filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
+        @include respond(phone) {
+          height: 140px;
+        }
       }
     }
   }

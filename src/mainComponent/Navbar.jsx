@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AddToCartImage from "../style/material/add-cart.png";
 
 const Navbar = ({ cartTotalItem }) => {
   return (

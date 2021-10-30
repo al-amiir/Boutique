@@ -1,5 +1,7 @@
 @import "./base/base.scss";
 
+@import "./abstract/mixins.scss";
+
 @import "./component/product.scss";
 @import "./component/cart.scss";
 @import "./component/cartProducts.scss";

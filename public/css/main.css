@@ -27,12 +27,40 @@ a {
   text-decoration: none;
 }
 
+/*
+0 - 350px:      small-phone
+350px - 450px:  meduim-phone
+450px - 600px:  Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- small-phone
+- meduim-phone
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
 .products {
   display: grid;
   grid-template-columns: repeat(3, 24rem);
   grid-gap: 22px;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (max-width: 48em) {
+  .products {
+    grid-template-columns: repeat(2, 24rem);
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .products {
+    grid-template-columns: repeat(1, 24rem);
+  }
 }
 
 .product {
@@ -121,6 +149,12 @@ a {
   display: flex;
   justify-content: center;
 }
+@media only screen and (max-width: 48em) {
+  .cartContainer .fullCart {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .cartContainer .fullCart_products {
   display: flex;
   flex-direction: column;
@@ -164,9 +198,19 @@ a {
   height: 270px;
   filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
 }
+@media only screen and (max-width: 37.5em) {
+  .cartContainer .emptyCart_image-woman {
+    height: 190px;
+  }
+}
 .cartContainer .emptyCart_image-man {
   height: 200px;
   filter: drop-shadow(2px 4px 7px black) contrast(1.2) saturate(1.1);
+}
+@media only screen and (max-width: 37.5em) {
+  .cartContainer .emptyCart_image-man {
+    height: 140px;
+  }
 }
 .cartContainer .button_empty {
   display: block;
@@ -496,6 +540,11 @@ a {
   padding: 18px;
   background-color: #005c6140;
   box-shadow: 0px 0px 10px 3px #01003a;
+}
+@media only screen and (max-width: 37.5em) {
+  .confirmation {
+    width: 370px;
+  }
 }
 
 .endShipping {

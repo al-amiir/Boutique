@@ -32,7 +32,7 @@ import Typography from "@mui/material/Typography";
 // Go to Confirmation Component
 //---------------------------------------------------------------------------------------
 
-const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMessage }) => {
+const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMessage, refreshCart }) => {
   const [steps, setSteps] = useState(["AddressForm", "PaymentForm", "Confirmation"]);
   const [checker, setChecker] = useState(0);
   const [token, setToken] = useState([]);
@@ -85,7 +85,7 @@ const Checkout = ({ cart, handleCaptureCheckout, order, errorMessage, setErrorMe
         ))}
       </Stepper>
       <span className="checkout_borders"></span>
-      {checker === steps.length ? <Confirmation finished={finished} order={order} errorMessage={errorMessage} /> : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} setErrorMessage={setErrorMessage} handleCaptureCheckout={handleCaptureCheckout} time={time} />}
+      {checker === steps.length ? <Confirmation finished={finished} order={order} errorMessage={errorMessage} refreshCart={refreshCart} /> : checker === 0 ? <AddressForm token={token} submitData={submitData} /> : <PaymentForm shippingData={shippingData} token={token} nextStep={nextStep} backStep={backStep} setErrorMessage={setErrorMessage} handleCaptureCheckout={handleCaptureCheckout} time={time} />}
     </div>
   );
 };

@@ -116,10 +116,13 @@ const App = () => {
 
         {/* 3 */}
         <Route path="/Checkout">
-          <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} order={order} errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
+          <Checkout cart={cart} handleCaptureCheckout={handleCaptureCheckout} order={order} errorMessage={errorMessage} setErrorMessage={setErrorMessage} refreshCart={refreshCart} />
         </Route>
         {/*  */}
       </Switch>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

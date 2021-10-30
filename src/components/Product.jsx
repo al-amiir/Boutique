@@ -9,8 +9,6 @@ const Product = ({ product, handleAddToCart }) => {
       <div className="product_text">
         <p>{product.name}</p>
         <p>${product.price.raw}</p>
-        <p>{product.description}</p>
-        {console.log(product)}
       </div>
       <button
         onClick={() => {

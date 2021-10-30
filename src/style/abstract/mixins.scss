@@ -1,0 +1,67 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 350px:      small-phone
+350px - 450px:  meduim-phone
+450px - 600px:  Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- small-phone
+- meduim-phone
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 21.875em) {
+      @content;
+    } //350px
+  }
+  @if $breakpoint == meduim-phone {
+    @media only screen and (max-width: 28em) {
+      @content;
+    } //450px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == large-phone {
+    @media only screen and (max-width: 48em) {
+      @content;
+    } //760px
+  }
+  @if $breakpoint == xlarge-phone {
+    @media only screen and (max-width: 50em) {
+      @content;
+    } //800px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+// usage
+// @include respond(phone) {
+//   transform: scale(0.8);
+//   height: 285px;
+// }

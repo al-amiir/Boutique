@@ -4,7 +4,6 @@ import SingleCart from "../components/SingleCart";
 import Loading from "../components/Loading";
 import ManShoppig from "../style/material/man-shopping.png";
 import WomanShoppig from "../style/material/woman-shopping.png";
-import businessReport from "../style/material/business-report.png";
 
 // As we are in Cart component,  we have two component, FullCart and EmptyCart
 
@@ -22,16 +21,17 @@ import businessReport from "../style/material/business-report.png";
 // total_unique_items: 1
 // updated: 1634931023
 ////////////////////////////////////////////////////////////
-
 // 1)
 // If line_items had objects, it is means that customer adds some products in cart, so we use FullCart component
 // What we do in FullCart Component :
 // - loop through every product in cart with SingleCart component and send data to it and methods
 // - display some details about cart like total items and total price
-
+////////////////////////////////////////////////////////////
 // 2)
 // If line_items had no objects display EmptyCart
-const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmptyCart }) => {
+////////////////////////////////////////////////////////////
+
+const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmptyCart, refreshCart }) => {
   // 1)
   function FullCart() {
     return (
@@ -40,7 +40,7 @@ const Cart = ({ cart, handleAddUpdateCart, handleAddRemoveFromCart, handleAddEmp
         <div className="fullCart">
           <div className="fullCart_products">
             {cart.line_items.map((c) => (
-              <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} />
+              <SingleCart key={c.id} data={c} handleAddUpdateCart={handleAddUpdateCart} handleAddRemoveFromCart={handleAddRemoveFromCart} refreshCart={refreshCart} />
             ))}
           </div>
           <div className="fullCart_total">

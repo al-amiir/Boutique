@@ -4,6 +4,12 @@
   grid-gap: 22px;
   justify-content: center;
   align-items: center;
+  @include respond(large-phone) {
+    grid-template-columns: repeat(2, 24rem);
+  }
+  @include respond(phone) {
+    grid-template-columns: repeat(1, 24rem);
+  }
 }
 
 .product {
