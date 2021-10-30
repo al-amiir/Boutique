@@ -42,7 +42,7 @@
       margin-bottom: 5px;
     }
   }
-  button {
+  &_button {
     position: relative;
     padding: 11px 30px;
     color: #03e9f4;
@@ -51,7 +51,7 @@
     font-size: 1.8rem;
     font-weight: 900;
   }
-  button:hover {
+  &_button:hover {
     background-color: #ff6224;
     color: #050801;
     box-shadow: 0 0 5px #ff6224, 0 0 25px #ff6224, 0 0 50px #ff6224, 0 0 200px #ff6224;
@@ -74,7 +74,7 @@
       animation-delay: 0.5s;
     }
   }
-  button span {
+  &_button span {
     position: absolute;
     display: block;
   }
@@ -98,8 +98,4 @@
       right: 100%;
     }
   }
-
-  // i {
-  //   margin-right: 5px;
-  // }
 }

@@ -11,13 +11,14 @@ const Product = ({ product, handleAddToCart }) => {
         <p>${product.price.raw}</p>
       </div>
       <button
+        className="product_button"
         onClick={() => {
           addToCartAnimation();
           handleAddToCart(product.id, 1);
         }}
       >
         <span></span>
-        <span></span>+{/* <i className="fas fa-plus"></i> */}
+        <span></span>+
       </button>
     </div>
   );

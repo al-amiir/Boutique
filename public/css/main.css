@@ -94,7 +94,7 @@ $breakpoint arguement choices:
   letter-spacing: 3px;
   margin-bottom: 5px;
 }
-.product button {
+.product_button {
   position: relative;
   padding: 11px 30px;
   color: #03e9f4;
@@ -103,12 +103,12 @@ $breakpoint arguement choices:
   font-size: 1.8rem;
   font-weight: 900;
 }
-.product button:hover {
+.product_button:hover {
   background-color: #ff6224;
   color: #050801;
   box-shadow: 0 0 5px #ff6224, 0 0 25px #ff6224, 0 0 50px #ff6224, 0 0 200px #ff6224;
 }
-.product button:hover span:nth-child(1) {
+.product_button:hover span:nth-child(1) {
   top: -100%;
   right: 48%;
   width: 3px;
@@ -117,7 +117,7 @@ $breakpoint arguement choices:
   animation: animate1 1s linear infinite;
   animation-delay: 0.25s;
 }
-.product button:hover span:nth-child(2) {
+.product_button:hover span:nth-child(2) {
   bottom: 50%;
   right: -100%;
   width: 100%;
@@ -126,7 +126,7 @@ $breakpoint arguement choices:
   animation: animate2 1s linear infinite;
   animation-delay: 0.5s;
 }
-.product button span {
+.product_button span {
   position: absolute;
   display: block;
 }
